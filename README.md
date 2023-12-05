@@ -1,6 +1,6 @@
 # SocialMediaAPp
 
-This is a social media app made after I completed this course on Udemy: https://www.udemy.com/course/react-native-mobile-app-development/ 
+This is a social media app that will be made after the completion of this course on Udemy: https://www.udemy.com/course/react-native-mobile-app-development/ 
 
 
 
