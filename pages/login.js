@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FirebaseContext from '../context/firebase';
 
-import * as ROUTES from '../constants/routes';
+import Routes from '../constants/routes';
 
 const Login = () => {
     const navigation = useNavigation();
@@ -25,11 +25,9 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
-        navigation.setOptions({
-            title: 'Login - Instagram'
-        });
-    }, []);
+    const handleSignUp = () => {
+        navigation.navigate('Login');
+    }
 
     return(
         <View style = {{flex: 1, flexDirection: 'row'}}>
@@ -64,7 +62,11 @@ const Login = () => {
                     <Text style={{fontSize: 14}}>
                         Don't have an account?{' '}
 
-                        <Text onPress={() => {navigation.navigate(ROUTES.SIGN_UP)}} style={{fontWeight: 'bold', color: 'blue'}}> Sign up </Text>
+                        <TouchableOpacity onPress={handleSignUp}> 
+                            <Text style={{marginTop: 10, fontWeight: 'bold', color: 'blue', alignItems: 'center'}}>
+                                Sign up 
+                            </Text>
+                        </TouchableOpacity>
                     </Text>
                 </View>
             </View>
