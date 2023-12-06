@@ -1,7 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Login from '../pages/login';
+import SignUp from './pages/signup';
+import Login from './pages/login';
 
 // stack navigators for authentication screens
 const Routes = () => {
@@ -10,6 +11,7 @@ const Routes = () => {
         <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen name='Login' component={Login}/>
+                <Tab.Screen name='SignUp' component={SignUp}/>
             </Tab.Navigator>
         </NavigationContainer>
     ); 

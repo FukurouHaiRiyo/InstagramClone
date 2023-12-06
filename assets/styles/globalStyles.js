@@ -14,6 +14,15 @@ const globalStyles = StyleSheet.create({
         paddding: 14, 
         borderRadius: 100, 
         backgroundColor: '#F9FaF8'
+    },
+
+    userStoryContainer: {
+        marginTop: 20, 
+        marginHorizontal: 28,
+        marginLeft: 27, 
+        marginRight: 17, 
+        flexDirection: 'row', 
+        justifyContent: 'space-between'
     }
 });
 

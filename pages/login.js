@@ -3,8 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FirebaseContext from '../context/firebase';
 
-import Routes from '../constants/routes';
-
 const Login = () => {
     const navigation = useNavigation();
     // const {firebase} = useContext(FirebaseContext);
@@ -26,7 +24,7 @@ const Login = () => {
     };
 
     const handleSignUp = () => {
-        navigation.navigate('Login');
+        navigation.navigate('SignUp');
     }
 
     return(

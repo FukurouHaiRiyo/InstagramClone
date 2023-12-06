@@ -1,11 +1,11 @@
 import React from 'react';
 import MainPage from './pages/main_page';
-import Login from './pages/login';
+import Routes from './routes';
 
 const App = () => {
   return (
-    <Login/>
-    // <MainPage/>
+    // <Routes/>
+    <MainPage/>
   );
 }
 
