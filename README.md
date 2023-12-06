@@ -53,7 +53,7 @@ Make sure you have expo installed. Install it by looking at Expo's documentation
 
 
 ## 🛠 Skills
-Javascript, Typescript, HTML, CSS, React, React Native, C/C++, Python, Java 
+Javascript, React Native, Firebase
 
 
 ## Roadmap
