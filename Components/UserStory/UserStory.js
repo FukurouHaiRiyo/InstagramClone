@@ -7,7 +7,9 @@ import { View, Text, Image } from 'react-native';
 const UserStory = (props) => {
   return (
     <View style={style.storyContainer}>
-        <Image source={props.profileImage}/>
+        <View style={style.userImageContainer}>
+          <Image source={props.profileImage} style={style.image}/>
+        </View>
         <Text style={style.firstName}>{props.firstName}</Text>
     </View>
   );
