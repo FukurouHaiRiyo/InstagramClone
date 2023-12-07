@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { SafeAreaView, View, TouchableOpacity, FlatList } from 'react-native';
 
 import Title from '../Components/Title/Title';
@@ -45,6 +45,31 @@ const MainPage = () => {
     },
   ];
 
+  const userStoriesPageSize = 4;
+  const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
+  const [userStoriesRenderData, setUserStoriesRenderData] = useState([]);
+  const [isLoadingUserStories, setIsLoadingUserStories] = useState(false);
+
+  const pagination = (database, currentPage, pageSize) => {
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    if(startIndex >= database.length) {
+      return [];
+    }
+
+    return database.slice(startIndex, endIndex);
+  }
+
+  useEffect(() => {
+    setIsLoadingUserStories(true);
+
+    const getInitialData = pagination(userStories, 1, userStoriesPageSize);
+    setUserStoriesRenderData(getInitialData);
+
+    setIsLoadingUserStories(false);
+  }, []);
+
   return (
     <SafeAreaView>
       <View style={globalStyles.header}>
@@ -55,8 +80,28 @@ const MainPage = () => {
       </View>
 
       <View style={globalStyles.userStoryContainer}>
-        <FlatList horizontal={true} showsHorizontalScrollIndicator={false} data={userStories} renderItem={({item}) => <UserStory firstName={item.firstName} profileImage={item.profileImage}/>}/>
+        <FlatList 
+          onEndReachedThreshold={0.5} 
+          onEndReached={() => {
+            if(isLoadingUserStories){
+              return;
+            }
+            
+            setIsLoadingUserStories(true);
+            const contentToAppend = pagination(userStories, userStoriesCurrentPage + 1, userStoriesPageSize);
 
+            if(contentToAppend.length > 0){
+              setUserStoriesCurrentPage(userStoriesCurrentPage + 1);
+              setUserStoriesRenderData(prev => [...prev, ...contentToAppend]);
+            }
+
+            setIsLoadingUserStories(false);
+          }}
+          horizontal={true} 
+          showsHorizontalScrollIndicator={false} 
+          data={userStoriesRenderData} 
+          renderItem={({item}) => <UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>}
+        />
       </View>
     </SafeAreaView>
   );
