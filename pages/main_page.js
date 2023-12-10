@@ -48,10 +48,70 @@ const MainPage = () => {
     
   ];
 
+  const userPosts = [
+    {
+      firstName: 'John',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 1,
+    },
+
+    {
+      firstName: 'Andrei P.',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 2,
+    },
+
+    {
+      firstName: 'Thor',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 3,
+    },
+
+    {
+      firstName: 'Mihai',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 4,
+    },
+    {
+      firstName: 'Ion',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 5,
+    },
+
+    {
+      firstName: 'Iulia',
+      location: 'Bucharest',
+      likes: 10,
+      comments: 5,
+      bookmarks: 2,
+      id: 6,
+    }
+  ];
+
   const userStoriesPageSize = 4;
   const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
   const [userStoriesRenderData, setUserStoriesRenderData] = useState([]);
   const [isLoadingUserStories, setIsLoadingUserStories] = useState(false);
+
+  const userPostsPageSize = 4;
+  const [userPostsCurrentPage, setUserPostsCurrentPage] = useState(1);
+  const [userPostssRenderData, setUserPostsRenderData] = useState([]);
+  const [isLoadingUserPosts, setIsLoadingUserPosts] = useState(false);
 
   const pagination = (database, currentPage, pageSize) => {
     const startIndex = (currentPage - 1) * pageSize;
@@ -105,6 +165,10 @@ const MainPage = () => {
           data={userStoriesRenderData} 
           renderItem={({item}) => <UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>}
         />
+      </View>
+
+      <View>
+        <FlatList data={userPosts} renderItem={({item}) => {}}/>
       </View>
     </SafeAreaView>
   );
