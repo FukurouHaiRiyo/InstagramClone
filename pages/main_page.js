@@ -163,6 +163,10 @@ const MainPage = () => {
           renderItem={({item}) => <UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>}
         />
       </View>
+
+      <View>
+        <FlatList data={userPosts} renderItem={({item}) => {}}/>
+      </View>
     </SafeAreaView>
   );
 }
