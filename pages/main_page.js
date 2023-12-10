@@ -44,6 +44,9 @@ const MainPage = () => {
       profileImage: require('../assets/images/default_profile.png'),
     },
   ];
+  const userPosts = [
+    
+  ];
 
   const userStoriesPageSize = 4;
   const [userStoriesCurrentPage, setUserStoriesCurrentPage] = useState(1);
