@@ -9,16 +9,19 @@ import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 const UserPost = (props) => {
   return (
     <View>
-      <View style={{flexDirection: 'row', alignItems: 'center'}}>
-        <UserProfileImage profileImage={props.profileImage} imageDimension={60}/>
+      <View style={style.user}>
+        <View style={style.userContainer}>
+          <UserProfileImage profileImage={props.profileImage} imageDimension={60}/>
 
-        <View style={{justifyContent: 'center', marginLeft: 10}}>
-          <Text>{props.firstName}</Text>
+          <View style={style.userTextContainer}>
+            <Text style={style.username}>
+              {props.firstName}
+            </Text>
 
-          {props.location && <Text>{props.location}</Text>}
+            {props.location && <Text style={style.location}>{props.location}</Text>}
+          </View>
         </View>
-
-        <FontAwesomeIcon icon={faEllipsisH}/>
+        <FontAwesomeIcon icon={faEllipsisH} color={'#79869F'}/>
       </View>
     </View>
   )
