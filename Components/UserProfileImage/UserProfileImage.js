@@ -6,13 +6,13 @@ import style from '../UserStory/style';
 const UserProfileImage = (props) => {
   return (
     <View style={[style.userImageContainer, {borderRadius: props.imageDimension}]}>
-        <Image source={props.profileImage} style={{width: props.imageDimenstion, height: props.imageDimenstion}}/>
+        <Image source={props.profileImage} style={{width: props.imageDimension, height: props.imageDimension}}/>
     </View>
   );
 
   UserProfileImage.propTypes = {
     profileImage: PropTypes.string.isRequired,
-    imageDimenstion: PropTypes.number.isRequired,
+    imageDimension: PropTypes.number.isRequired,
   };
 }
 

@@ -3,6 +3,7 @@ import { SafeAreaView, View, TouchableOpacity, FlatList } from 'react-native';
 
 import Title from '../Components/Title/Title';
 import UserStory from '../Components/UserStory/UserStory';
+import UserPost from '../Components/UserPost/userPost';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import globalStyles from '../assets/styles/globalStyles';
@@ -44,9 +45,6 @@ const MainPage = () => {
       profileImage: require('../assets/images/default_profile.png'),
     },
   ];
-  const userPosts = [
-    
-  ];
 
   const userPosts = [
     {
@@ -55,6 +53,8 @@ const MainPage = () => {
       likes: 10,
       comments: 5,
       bookmarks: 2,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       id: 1,
     },
 
@@ -64,6 +64,8 @@ const MainPage = () => {
       likes: 10,
       comments: 5,
       bookmarks: 2,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       id: 2,
     },
 
@@ -72,6 +74,8 @@ const MainPage = () => {
       location: 'Bucharest',
       likes: 10,
       comments: 5,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       bookmarks: 2,
       id: 3,
     },
@@ -82,6 +86,8 @@ const MainPage = () => {
       likes: 10,
       comments: 5,
       bookmarks: 2,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       id: 4,
     },
     {
@@ -90,6 +96,8 @@ const MainPage = () => {
       likes: 10,
       comments: 5,
       bookmarks: 2,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       id: 5,
     },
 
@@ -99,6 +107,8 @@ const MainPage = () => {
       likes: 10,
       comments: 5,
       bookmarks: 2,
+      image: require('../assets/images/default_post.png'),
+      profileImage: require('../assets/images/default_profile.png'),
       id: 6,
     }
   ];
@@ -163,12 +173,23 @@ const MainPage = () => {
           horizontal={true} 
           showsHorizontalScrollIndicator={false} 
           data={userStoriesRenderData} 
-          renderItem={({item}) => <UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>}
+          renderItem={({item}) => (<UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>)}
         />
       </View>
 
-      <View>
-        <FlatList data={userPosts} renderItem={({item}) => {}}/>
+      <View style={globalStyles.userPostContainer}>
+        <FlatList data={userPosts} renderItem={({item}) => (
+          <UserPost
+            firstName={item.firstName} 
+            key={item.id}
+            image={item.image} 
+            likes={item.likes} 
+            comments={item.comments} 
+            profileImage={item.profileImage}
+            location={item.location}
+            bookmarks={item.bookmarks}
+          />
+        )}/>
       </View>
     </SafeAreaView>
   );

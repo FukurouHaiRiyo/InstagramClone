@@ -23,6 +23,11 @@ const globalStyles = StyleSheet.create({
         marginRight: 17, 
         flexDirection: 'row', 
         justifyContent: 'space-between'
+    },
+
+    userPostContainer: {
+        marginHorizontal: 24,
+        marginTop: 20,
     }
 });
 
