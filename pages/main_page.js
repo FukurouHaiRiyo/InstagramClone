@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, View, TouchableOpacity, FlatList } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, FlatList, Text } from 'react-native';
 
 import Title from '../Components/Title/Title';
 import UserStory from '../Components/UserStory/UserStory';
@@ -145,40 +145,55 @@ const MainPage = () => {
 
   return (
     <SafeAreaView>
-      <View style={globalStyles.header}>
-        <Title title={'Start exploring'}/>
-        <TouchableOpacity style={globalStyles.messageIcon}>
-          <FontAwesomeIcon icon={faMessage} color={'#898DAE'}/>
-        </TouchableOpacity>
-      </View>
-
-      <View style={globalStyles.userStoryContainer}>
-        <FlatList 
-          onEndReachedThreshold={0.5} 
-          onEndReached={() => {
-            if(isLoadingUserStories){
-              return;
-            }
-            
-            setIsLoadingUserStories(true);
-            const contentToAppend = pagination(userStories, userStoriesCurrentPage + 1, userStoriesPageSize);
-
-            if(contentToAppend.length > 0){
-              setUserStoriesCurrentPage(userStoriesCurrentPage + 1);
-              setUserStoriesRenderData(prev => [...prev, ...contentToAppend]);
-            }
-
-            setIsLoadingUserStories(false);
-          }}
-          horizontal={true} 
-          showsHorizontalScrollIndicator={false} 
-          data={userStoriesRenderData} 
-          renderItem={({item}) => (<UserStory key = {item.id} firstName={item.firstName} profileImage={item.profileImage}/>)}
-        />
-      </View>
-
       <View style={globalStyles.userPostContainer}>
-        <FlatList data={userPosts} renderItem={({item}) => (
+        <FlatList ListHeaderComponent={
+          <>
+          <View style={globalStyles.header}>
+          <Title title={'Let’s Explore'} />
+          <TouchableOpacity style={globalStyles.messageIcon}>
+            <FontAwesomeIcon
+              icon={faMessage}
+              size={20}
+              color={'#898DAE'}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={globalStyles.userStoryContainer}>
+          <FlatList
+            onEndReachedThreshold={0.5}
+            onEndReached={() => {
+              if (isLoadingUserStories) {
+                return;
+              }
+              setIsLoadingUserStories(true);
+              const contentToAppend = pagination(
+                userStories,
+                userStoriesCurrentPage + 1,
+                userStoriesPageSize,
+              );
+              if (contentToAppend.length > 0) {
+                setUserStoriesCurrentPage(userStoriesCurrentPage + 1);
+                setUserStoriesRenderData(prev => [
+                  ...prev,
+                  ...contentToAppend,
+                ]);
+              }
+              setIsLoadingUserStories(false);
+            }}
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            data={userStoriesRenderData}
+            renderItem={({item}) => (
+              <UserStory
+                key={'userStory' + item.id}
+                firstName={item.firstName}
+                profileImage={item.profileImage}
+              />
+            )}
+          />
+        </View>
+        </>
+        } data={userPosts} renderItem={({item}) => (
           <UserPost
             firstName={item.firstName} 
             key={item.id}
@@ -189,7 +204,9 @@ const MainPage = () => {
             location={item.location}
             bookmarks={item.bookmarks}
           />
-        )}/>
+        )}
+          showsVerticalScrollIndicator={false}
+        />
       </View>
     </SafeAreaView>
   );
