@@ -33,6 +33,12 @@ const style = StyleSheet.create({
         paddingBottom: 20,
         borderBottomColor: '#EFF2F6',
     },
+
+    userPostStats:{
+        marginLeft: 10, 
+        flexDirection: 'row'
+    }
+
 });
 
 export default style;

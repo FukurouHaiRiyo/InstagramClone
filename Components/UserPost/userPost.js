@@ -29,7 +29,7 @@ const UserPost = (props) => {
         <Image source={props.image} style={{width: '100%', height: 300}}/>
       </View>
 
-      <View style={{marginLeft: 10, flexDirection: 'row'}}>
+      <View style={style.userPostStats}>
         <View style={{flexDirection: 'row'}}>
           <FontAwesomeIcon icon={faHeart} color={'#79869F'}/>
           <Text style={{marginLeft: 3, color: '#79869F'}}>{props.likes}</Text>

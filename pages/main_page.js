@@ -118,7 +118,7 @@ const MainPage = () => {
   const [userStoriesRenderData, setUserStoriesRenderData] = useState([]);
   const [isLoadingUserStories, setIsLoadingUserStories] = useState(false);
 
-  const userPostsPageSize = 4;
+  const userPostsPageSize = 2;
   const [userPostsCurrentPage, setUserPostsCurrentPage] = useState(1);
   const [userPostssRenderData, setUserPostsRenderData] = useState([]);
   const [isLoadingUserPosts, setIsLoadingUserPosts] = useState(false);
@@ -141,6 +141,11 @@ const MainPage = () => {
     setUserStoriesRenderData(getInitialData);
 
     setIsLoadingUserStories(false);
+
+    setIsLoadingUserPosts(true);
+    const getInitialDataPost = pagination(userPosts, 1, userPostsPageSize);
+    setUserPostsRenderData(getInitialDataPost);
+    setIsLoadingUserPosts(false);
   }, []);
 
   return (
@@ -193,7 +198,34 @@ const MainPage = () => {
           />
         </View>
         </>
-        } data={userPosts} renderItem={({item}) => (
+        }
+        onEndReachedThreshold={0.5}
+        onEndReached={() => {
+          if(isLoadingUserPosts){
+            return;
+          }
+
+          setIsLoadingUserPosts(true);
+          console.log(
+            'Feching more data for you',           
+            userPostsCurrentPage + 1
+          );
+
+          const contentToAppend = pagination(
+            userPosts,
+            userPostsCurrentPage + 1,
+            userPostsPageSize,
+          );
+
+          if(contentToAppend.length > 0){
+            setUserPostsCurrentPage(userPostsCurrentPage + 1);
+            setUserPostsRenderData(prev => [...prev, ...contentToAppend]);
+          }
+
+          setIsLoadingUserPosts(false);
+        }} 
+        data={userPostssRenderData}
+        renderItem={({item}) => (
           <UserPost
             firstName={item.firstName} 
             key={item.id}
