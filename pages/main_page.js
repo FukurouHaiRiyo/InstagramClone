@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, View, TouchableOpacity, FlatList, Dimensions } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, FlatList } from 'react-native';
 
 import Title from '../Components/Title/Title';
 import UserStory from '../Components/UserStory/UserStory';
@@ -123,8 +123,6 @@ const MainPage = () => {
   const [userPostssRenderData, setUserPostsRenderData] = useState([]);
   const [isLoadingUserPosts, setIsLoadingUserPosts] = useState(false);
 
-  const [screenDimensions, setScreenDimensions] = useState(Dimensions.get('screen'));
-  console.log(screenDimensions);
 
   const pagination = (database, currentPage, pageSize) => {
     const startIndex = (currentPage - 1) * pageSize;
@@ -149,10 +147,6 @@ const MainPage = () => {
     const getInitialDataPost = pagination(userPosts, 1, userPostsPageSize);
     setUserPostsRenderData(getInitialDataPost);
     setIsLoadingUserPosts(false);
-
-    Dimensions.addEventListener('change', (result) => {
-      setScreenData(result.screen);
-    })
   }, []);
 
   return (
@@ -205,7 +199,7 @@ const MainPage = () => {
           />
         </View>
         </>
-        }
+        } style={{marginBottom: 1, marginLeft: -10, marginRight: -10}}
         onEndReachedThreshold={0.5}
         onEndReached={() => {
           if(isLoadingUserPosts){
