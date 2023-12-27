@@ -52,7 +52,7 @@ Make sure you have expo installed. Install it by looking at Expo's documentation
 
 
 
-## 🛠 Skills
+## 🛠 Skills developed
 Javascript, React Native, Firebase
 
 

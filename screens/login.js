@@ -2,10 +2,11 @@ import React, {useState, useContext, useEffect} from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import FirebaseContext from '../context/firebase';
+import MainPage from './main_page';
 
 const Login = () => {
     const navigation = useNavigation();
-    // const {firebase} = useContext(FirebaseContext);
+    const {firebase} = useContext(FirebaseContext);
 
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
@@ -15,7 +16,7 @@ const Login = () => {
 
     const handleLogin = async () => {
         try{
-
+            await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
         } catch(error){
             setEmailAddress('');
             setPassword('');

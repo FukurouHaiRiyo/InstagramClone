@@ -7,6 +7,7 @@ import UserPost from '../Components/UserPost/userPost';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMessage } from '@fortawesome/free-solid-svg-icons';
 import globalStyles from '../assets/styles/globalStyles';
+import { NavigationContainer } from '@react-navigation/native';
 
 const MainPage = () => {
   // for testing front end
