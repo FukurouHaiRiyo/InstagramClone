@@ -22,7 +22,7 @@ const UserPost = (props) => {
 
 UserPost.propTypes = {
   username: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
+  firstName: PropTypes.string,
   location: PropTypes.string,
   image: PropTypes.any.isRequired,
   profileImage: PropTypes.any.isRequired,

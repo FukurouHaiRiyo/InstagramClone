@@ -16,7 +16,9 @@ const Login = () => {
 
     const handleLogin = async () => {
         try{
-            await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
+            await firebase.auth().signInWithEmailAndPassword(emailAddress, password).then(() =>{
+                navigation.navigate('MainPage');
+            })
         } catch(error){
             setEmailAddress('');
             setPassword('');

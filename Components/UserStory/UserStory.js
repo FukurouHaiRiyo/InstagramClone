@@ -9,7 +9,7 @@ const UserStory = (props) => {
   return (
     <View style={style.storyContainer}>
         <UserProfileImage profileImage={props.profileImage} imageDimension={60}/>
-        <Text style={style.username}>{props.firstName}</Text>
+        <Text style={style.username}>{props.username}</Text>
     </View>
   );
 

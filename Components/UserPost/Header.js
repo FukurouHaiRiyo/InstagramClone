@@ -28,7 +28,7 @@ const Header = ({username, location, profileImage}) => {
 }
 
 Header.protoTypes = {
-    username: PropTypes.string.isRequired,
+    username: PropTypes.string,
     location: PropTypes.string,
     profileImage: PropTypes.any.isRequired,
 };

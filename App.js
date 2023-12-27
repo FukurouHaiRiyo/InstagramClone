@@ -7,11 +7,11 @@ import { firebase, FieldValue } from './lib/firebase';
 const App = () => {
   return (
     // <Routes/>
-    <MainPage/>
+    // <MainPage/>
 
-    // <FirebaseContext.Provider value = {{firebase, FieldValue}}>
-    //   <Routes/>
-    // </FirebaseContext.Provider>
+    <FirebaseContext.Provider value = {{firebase, FieldValue}}>
+      <Routes/>
+    </FirebaseContext.Provider>
   );
 }
 

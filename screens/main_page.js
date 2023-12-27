@@ -14,34 +14,40 @@ const MainPage = () => {
   const userStories = [
     {
       firstName: 'John',
+      username: 'John',
       id: 1,
       profileImage: require('../assets/images/default_profile.png'),
     },
     {
       firstName: 'Andrei P.',
+      username: 'Andrei P.',
       id: 2,
       profileImage: require('../assets/images/default_profile.png'),
     },
 
     {
       firstName: 'Thor',
+      username: 'Thor',
       id: 3,
       profileImage: require('../assets/images/default_profile.png'),
     },
 
     {
       firstName: 'Mihai',
+      username: 'Mihai',
       id: 4,
       profileImage: require('../assets/images/default_profile.png'),
     },
     {
       firstName: 'Ion',
+      username: 'Ion',
       id: 5,
       profileImage: require('../assets/images/default_profile.png'),
     },
 
     {
       firstName: 'Iulia',
+      username: 'Iulia',
       id: 6,
       profileImage: require('../assets/images/default_profile.png'),
     },
@@ -50,6 +56,7 @@ const MainPage = () => {
   const userPosts = [
     {
       firstName: 'John',
+      username: 'John',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -61,6 +68,7 @@ const MainPage = () => {
 
     {
       firstName: 'Andrei P.',
+      username: 'Andrei P.',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -72,6 +80,7 @@ const MainPage = () => {
 
     {
       firstName: 'Thor',
+      username: 'Thor',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -83,6 +92,7 @@ const MainPage = () => {
 
     {
       firstName: 'Mihai',
+      username: 'Mihai',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -93,6 +103,7 @@ const MainPage = () => {
     },
     {
       firstName: 'Ion',
+      username: 'Ion',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -104,6 +115,7 @@ const MainPage = () => {
 
     {
       firstName: 'Iulia',
+      username: 'Iulia',
       location: 'Bucharest',
       likes: 10,
       comments: 5,
@@ -193,7 +205,7 @@ const MainPage = () => {
             renderItem={({item}) => (
               <UserStory
                 key={'userStory' + item.id}
-                firstName={item.firstName}
+                username={item.username}
                 profileImage={item.profileImage}
               />
             )}
@@ -229,7 +241,7 @@ const MainPage = () => {
         data={userPostssRenderData}
         renderItem={({item}) => (
           <UserPost
-            firstName={item.firstName} 
+            username={item.username} 
             key={item.id}
             image={item.image} 
             likes={item.likes} 
