@@ -92,5 +92,62 @@ export async function getPhotos(userId, following){
         docId: photo.id
     }))
 
+    const photosWithUserDetails = await Promise.all(
+        userFollowedPhotos.map(async (photo) => {
+            let userLikePhoto = false;
+            if(photo.likes.includes(userId)){
+                userLikePhoto = true;
+            }
+
+            const user = await getUserById(photo.userId);
+
+            const {username} = user[0];
+            return {username, ...photo, userLikePhoto};
+        })
+    );
+
+    return photosWithUserDetails;
+}
+
+export async function getUserPhotosByUserId(userId){
+    const result = await firebase
+        .firestore()
+        .collection('photos')
+        .where('userId', '==', userId)
+        .get();
+
+    const photos = result.docs.map((photo) => ({
+        ...photo.data(),
+        docId: photo.id
+    }));
+
+    return photos;
+}
+
+export async function isUserFollowingProfile(loggedInUserUsername, profileUserId){
+    const result = await firebase 
+        .firestore()    
+        .collection('users')
+        .where('username', '==', loggedInUserUsername)
+        .where('following', 'array-contains', profileUserId)
+        .get();
+
+    const [response = {}] = result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id
+    }));
+        
+    return response.userId;
+}
+
+export async function toggleFollow(
+    isFollowingProfile,
+    activeUserDocId,
+    profileDocId,
+    profileUserId,
+    followingUserId
+){
+    await updatedLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowingProfile);
     
+    await updatedFollowedUserFollowers(profileDocId, followingUserId, isFollowingProfile);
 }
