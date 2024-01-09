@@ -1,8 +1,8 @@
 import React from 'react';
-import MainPage from './screens/main_page';
-import Routes from './navigation/routes';
+import MainNavigation from './navigation/main_nav';
 import FirebaseContext from './context/firebase';
 import { firebase, FieldValue } from './lib/firebase';
+import { NavigationContainer } from '@react-navigation/native';
 
 const App = () => {
   return (
@@ -10,7 +10,9 @@ const App = () => {
     // <MainPage/>
 
     <FirebaseContext.Provider value = {{firebase, FieldValue}}>
-      <Routes/>
+      <NavigationContainer>
+        <MainNavigation/>
+      </NavigationContainer>
     </FirebaseContext.Provider>
   );
 }

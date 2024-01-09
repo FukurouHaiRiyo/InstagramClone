@@ -18,6 +18,11 @@ const Login = () => {
         try{
             await firebase.auth().signInWithEmailAndPassword(emailAddress, password).then(() =>{
                 navigation.navigate('MainPage');
+                // make sure the user can't go back to the login page
+                navigation.reset({
+                    index: 0,
+                    routes: [{name: 'MainPage'}],
+                });
             })
         } catch(error){
             setEmailAddress('');

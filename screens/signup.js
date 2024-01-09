@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React, {useState} from 'react';
+import { Text, SafeAreaView, ScrollView, View } from 'react-native';
 
 const SignUp = () => {
   return (
