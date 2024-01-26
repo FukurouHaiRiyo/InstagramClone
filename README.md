@@ -2,7 +2,7 @@
 
 This is a social media app that will be made after the completion of this course on Udemy: https://www.udemy.com/course/react-native-mobile-app-development/ 
 
-
+I decided to continue the project and make the backend as well, since only the frontend was made.
 
 
 ## Demo

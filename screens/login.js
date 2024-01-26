@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import FirebaseContext from '../context/firebase';
+// import FirebaseContext from '../context/firebase';
 import MainPage from './main_page';
 
 const Login = () => {
