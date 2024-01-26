@@ -41,6 +41,12 @@ const globalStyles = StyleSheet.create({
     backgroundWhite: {
         backgroundColor: '#F9FaF8'
     },
+
+    cameraIcon: {
+        paddding: 14, 
+        borderRadius: 100, 
+        backgroundColor: '#F9FaF8'
+    },
 });
 
 export default globalStyles;

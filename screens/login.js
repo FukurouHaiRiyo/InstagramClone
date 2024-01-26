@@ -27,7 +27,7 @@ const Login = () => {
         } catch(error){
             setEmailAddress('');
             setPassword('');
-            setError(error.message);
+            setError('The email address or password is incorrect. Please try again.');
         }
     };
 

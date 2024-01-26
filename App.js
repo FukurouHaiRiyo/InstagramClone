@@ -8,13 +8,13 @@ import MainPage from './screens/main_page';
 const App = () => {
   return (
     // <Routes/>
-    <MainPage/>
+    // <MainPage/>
 
-    // <FirebaseContext.Provider value = {{firebase, FieldValue}}>
-    //   <NavigationContainer>
-    //     <MainNavigation/>
-    //   </NavigationContainer>
-    // </FirebaseContext.Provider>
+    <FirebaseContext.Provider value = {{firebase, FieldValue}}>
+      <NavigationContainer>
+        <MainNavigation/>
+      </NavigationContainer>
+    </FirebaseContext.Provider>
   );
 }
 

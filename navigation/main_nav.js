@@ -2,6 +2,7 @@ import { Routes } from "./routes";
 import Login from "../screens/login";
 import MainPage from "../screens/main_page";
 import SignUp from "../screens/signup";
+import Dashboard from "../screens/Dashboard/dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -15,10 +16,6 @@ const MainNavigation = () => {
             <Stack.Screen name={Routes.Login} component={Login}/>
             <Stack.Screen name={Routes.MainPage} component={MainPage}/>
             <Stack.Screen name={Routes.SignUp} component={SignUp}/>
-
-            <DrawerNavigation initialRouteName={Routes.MainPage}>
-                <Drawer.Screen name={Routes.Dashboard} component={Dashboard}/>
-            </DrawerNavigation>
         </Stack.Navigator>
     )
 }

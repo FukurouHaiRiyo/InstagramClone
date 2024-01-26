@@ -5,7 +5,7 @@ import Title from '../Components/Title/Title';
 import UserStory from '../Components/UserStory/UserStory';
 import UserPost from '../Components/UserPost/userPost';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faMessage, faCamera } from '@fortawesome/free-solid-svg-icons';
 import globalStyles from '../assets/styles/globalStyles';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -168,49 +168,57 @@ const MainPage = () => {
         <FlatList ListHeaderComponent={
           <>
           <View style={globalStyles.header}>
-          <Title title={'Let’s Explore'} />
-          <TouchableOpacity style={globalStyles.messageIcon}>
+            <Title title={'Let’s Explore'} />
+            <TouchableOpacity style={globalStyles.messageIcon}>
+              <FontAwesomeIcon
+                icon={faMessage}
+                size={20}
+                color={'#898DAE'}
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={globalStyles.cameraIcon}>
             <FontAwesomeIcon
-              icon={faMessage}
+              icon={faCamera}
               size={20}
               color={'#898DAE'}
             />
           </TouchableOpacity>
-        </View>
-        <View style={globalStyles.userStoryContainer}>
-          <FlatList
-            onEndReachedThreshold={0.5}
-            onEndReached={() => {
-              if (isLoadingUserStories) {
-                return;
-              }
-              setIsLoadingUserStories(true);
-              const contentToAppend = pagination(
-                userStories,
-                userStoriesCurrentPage + 1,
-                userStoriesPageSize,
-              );
-              if (contentToAppend.length > 0) {
-                setUserStoriesCurrentPage(userStoriesCurrentPage + 1);
-                setUserStoriesRenderData(prev => [
-                  ...prev,
-                  ...contentToAppend,
-                ]);
-              }
-              setIsLoadingUserStories(false);
-            }}
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            data={userStoriesRenderData}
-            renderItem={({item}) => (
-              <UserStory
-                key={'userStory' + item.id}
-                username={item.username}
-                profileImage={item.profileImage}
-              />
-            )}
-          />
-        </View>
+          </View>
+          <View style={globalStyles.userStoryContainer}>
+            <FlatList
+              onEndReachedThreshold={0.5}
+              onEndReached={() => {
+                if (isLoadingUserStories) {
+                  return;
+                }
+                setIsLoadingUserStories(true);
+                const contentToAppend = pagination(
+                  userStories,
+                  userStoriesCurrentPage + 1,
+                  userStoriesPageSize,
+                );
+                if (contentToAppend.length > 0) {
+                  setUserStoriesCurrentPage(userStoriesCurrentPage + 1);
+                  setUserStoriesRenderData(prev => [
+                    ...prev,
+                    ...contentToAppend,
+                  ]);
+                }
+                setIsLoadingUserStories(false);
+              }}
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              data={userStoriesRenderData}
+              renderItem={({item}) => (
+                <UserStory
+                  key={'userStory' + item.id}
+                  username={item.username}
+                  profileImage={item.profileImage}
+                />
+              )}
+            />
+          </View>
         </>
         } style={{marginBottom: 1, marginLeft: -10, marginRight: -10}}
         onEndReachedThreshold={0.5}
