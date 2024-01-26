@@ -1,5 +1,5 @@
 import { Routes } from "./routes";
-import Login from "../screens/login";
+import Login from "../screens/Login/login";
 import MainPage from "../screens/main_page";
 import SignUp from "../screens/signup";
 import Dashboard from "../screens/Dashboard/dashboard";

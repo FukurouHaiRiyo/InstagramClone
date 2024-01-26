@@ -4,12 +4,14 @@ import { SafeAreaView, View, TouchableOpacity, FlatList } from 'react-native';
 import Title from '../Components/Title/Title';
 import UserStory from '../Components/UserStory/UserStory';
 import UserPost from '../Components/UserPost/userPost';
+import Profile from './Profile/Profile';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMessage, faCamera } from '@fortawesome/free-solid-svg-icons';
 import globalStyles from '../assets/styles/globalStyles';
-import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const MainPage = () => {
+  const Drawer = createDrawerNavigator();
   // for testing front end
   const userStories = [
     {
