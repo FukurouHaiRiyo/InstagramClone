@@ -44,5 +44,18 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
 
+    errorText: {
+        color: 'red',
+        fontSize: 12,
+    },
+
+    input: {
+        borderWidth: 1,
+        borderColor: 'grey',
+        borderRadius: 4,
+        maginBottom: 2,
+        padding: 10,
+    }
+
     
 });
