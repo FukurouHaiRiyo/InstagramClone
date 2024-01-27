@@ -53,9 +53,43 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'grey',
         borderRadius: 4,
-        maginBottom: 2,
         padding: 10,
-    }
+    },
 
-    
+    button: {
+        backgroundColor: 'blue',
+        height: 40,
+        justifyContent: 'center',
+        borderRadius: 4,
+    },
+
+    buttonDisabled: {
+        opacity: 0.5,
+    },
+
+    buttonText:{
+        color: 'white',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    }, 
+
+    loginContainer: {
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: 'grey',
+        alignItems: 'center',
+    },
+
+    loginText: {
+        color: 'blue',
+    },
+
+    loginLink: {
+        color: 'blue',
+        fontWeight: 'bold',
+    }
 });
+
+export default styles;
