@@ -21,6 +21,34 @@ const SignUp = () => {
 
   const handleSignUp = async (event) => {
     const usernameExists = await doesUsernameExist(username);
+
+    if (!usernameExists){
+      try{
+        const createdUserResult = await firebase.auth().createUserWithEmailAndPassword(emailAddress, password);
+        await createdUserResult.user.updateProfile({
+          displayName: username
+        });
+
+        await firebase.firestore().collection('users').add({
+          userId: createdUserResult.user.uid,
+          username: username.toLowerCase(),
+          fullName,
+          emailAddress: emailAddress.toLowerCase(),
+          following: ['2'],
+          followers: [],
+          dateCreated: Date.now()
+        });
+
+        navigation.navigate('Login');
+        // let the user know the account was created
+        alert('Account created successfully!');
+      } catch(error){
+        setFullName('');
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      }
+    }
   }
 
   return (
