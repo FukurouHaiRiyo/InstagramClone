@@ -33,7 +33,4 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
-
-# node modules
-node_modules/
 ```
