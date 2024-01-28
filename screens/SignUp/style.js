@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     },
     imageWrapper: {
         flex: 3,
+        width: '100%',
         // Additional styles
     },
     image: {
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
     },
     formWrapper: {
         flex: 2,
+        width: '100%',
         // Additional styles
     },
     formContainer: {
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         marginBottom: 2,
         padding: 10,
+        height: 40,
         // Additional styles
     },
     button: {
@@ -72,9 +75,12 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'grey',
         alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
     },
     loginText: {
-        // Additional styles
+        color: 'grey',
+        alignContent: 'center',
     },
     loginLink: {
         color: 'blue',

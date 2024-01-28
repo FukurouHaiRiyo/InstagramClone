@@ -62,7 +62,7 @@ const Login = () => {
                 />
             </View>
 
-            <TouchableOpacity disabled={isInvalid} onPress={handleLogin}
+            <TouchableOpacity onPress={handleLogin}
                 style={isInvalid ? styles.loginButtonDisabled : styles.loginButton}
             >
                 <Text style={styles.inputText}>Login</Text> 

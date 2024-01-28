@@ -54,11 +54,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 40,
         marginBottom: 10,
+        backgroundColor: '#0000FF',
+        opacity: 0.5,
     },
 
     loginButtonDisabled:{
         width: '80%',
-        backgroundColor: '#0000FF',
+        backgroundColor: 'grey',
         borderRadius: 25,
         justifyContent: 'center',
         height: 50,
