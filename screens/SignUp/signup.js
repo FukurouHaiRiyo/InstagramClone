@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import FirebaseContext from '../../context/firebase';
 import {doesUsernameExist} from '../../services/firebase';
 import styles from './style';
+import Toast from 'react-native-toast-message';
 
 const SignUp = () => {
   const {firebase} = useContext(FirebaseContext);
@@ -40,8 +41,13 @@ const SignUp = () => {
         });
 
         navigation.navigate('Login');
-        // let the user know the account was created
-        alert('Account created successfully!');
+        // let the user know the account was created using a toast
+        Toast.show({
+          type: 'success',
+          position: 'top',
+          text1: 'Account created successfully',
+          text2: 'Please login to continue'
+        });
       } catch(error){
         setFullName('');
         setEmailAddress('');
