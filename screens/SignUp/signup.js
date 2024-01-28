@@ -54,6 +54,15 @@ const SignUp = () => {
         setPassword('');
         setError(error.message);
       }
+    } else {
+      setUsername('');
+      setError('That username is already taken, please try another.');
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: 'Error',
+        text2: 'That username is already taken, please try another.'
+      });
     }
   }
 

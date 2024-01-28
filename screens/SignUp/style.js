@@ -6,21 +6,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-
     imageWrapper: {
         flex: 3,
+        // Additional styles
     },
-
     image: {
         width: '100%',
         height: '100%',
         resizeMode: 'contain',
     },
-
     formWrapper: {
         flex: 2,
+        // Additional styles
     },
-
     formContainer: {
         backgroundColor: 'white',
         padding: 10,
@@ -29,13 +27,11 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         marginBottom: 4,
     },
-
     logoContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
     },
-
     logo: {
         marginTop: 2,
         width: '60%',
@@ -43,36 +39,32 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         marginBottom: 4,
     },
-
     errorText: {
         color: 'red',
-        fontSize: 12,
+        // Additional styles
     },
-
     input: {
         borderWidth: 1,
         borderColor: 'grey',
         borderRadius: 4,
+        marginBottom: 2,
         padding: 10,
+        // Additional styles
     },
-
     button: {
         backgroundColor: 'blue',
         height: 40,
         justifyContent: 'center',
         borderRadius: 4,
     },
-
     buttonDisabled: {
         opacity: 0.5,
     },
-
-    buttonText:{
+    buttonText: {
         color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
-    }, 
-
+    },
     loginContainer: {
         backgroundColor: 'white',
         padding: 10,
@@ -81,15 +73,13 @@ const styles = StyleSheet.create({
         borderColor: 'grey',
         alignItems: 'center',
     },
-
     loginText: {
-        color: 'blue',
+        // Additional styles
     },
-
     loginLink: {
         color: 'blue',
         fontWeight: 'bold',
-    }
+    },
 });
 
 export default styles;
