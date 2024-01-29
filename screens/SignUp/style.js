@@ -79,6 +79,13 @@ const styles = StyleSheet.create({
         fontWeight: '600', // font-semibold
         color: '#facc15', // text-yellow-500
     },
+
+    title:{
+        fontWeight: 'bold',
+        fontSize: 50,
+        color: '#fb5b5a',
+        marginBottom: 40,
+    },
 });
 
 export default styles;

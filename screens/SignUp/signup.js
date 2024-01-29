@@ -71,7 +71,7 @@ const SignUp = () => {
       <View style={styles.formWrapper}>
         <View style={styles.formContainer}>
           <View style={styles.logoContainer}>
-            <Image style={styles.logo} source={require('../../assets/images/oubit.png')} />
+            <Text style={styles.title}>Outbit</Text>
           </View>
 
           {error && <Text style={styles.errorText}>{error}</Text>}
