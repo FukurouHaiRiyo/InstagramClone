@@ -3,88 +3,81 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    imageWrapper: {
-        flex: 3,
-        width: '100%',
-        // Additional styles
-    },
-    image: {
-        width: '100%',
-        height: '100%',
-        resizeMode: 'contain',
-    },
-    formWrapper: {
-        flex: 2,
-        width: '100%',
-        // Additional styles
-    },
-    formContainer: {
         backgroundColor: 'white',
-        padding: 10,
-        borderWidth: 1,
-        borderColor: 'grey',
-        borderRadius: 4,
-        marginBottom: 4,
     },
-    logoContainer: {
+
+    formWrapper: {
+        flex: 1,
+        paddingHorizontal: 32, 
+        paddingTop: 32, 
+        borderTopLeftRadius: 50,
+        borderTopRightRadius: 50,
+        backgroundColor: 'white',
+    },
+
+    formContainer: {
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: '100%',
     },
+
+    logoContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+
     logo: {
-        marginTop: 2,
-        width: '60%',
-        height: '60%',
-        resizeMode: 'contain',
-        marginBottom: 4,
+        width: 165,
+        height: 110,
     },
+
     errorText: {
         color: 'red',
-        // Additional styles
+        marginBottom: 16,
     },
+
     input: {
-        borderWidth: 1,
-        borderColor: 'grey',
-        borderRadius: 4,
-        marginBottom: 2,
-        padding: 10,
-        height: 40,
-        // Additional styles
+        padding: 16, 
+        width: '90%',
+        backgroundColor: '#f3f3f3', 
+        color: '#4a4a4a', 
+        borderRadius: 12, 
+        marginBottom: 12, 
     },
+
     button: {
-        backgroundColor: 'blue',
-        height: 40,
-        justifyContent: 'center',
-        borderRadius: 4,
+        paddingVertical: 12, 
+        backgroundColor: '#facc15', 
+        borderRadius: 24, 
+        width: '100%',
+        marginBottom: 12,
     },
+
+    buttonText: {
+        fontSize: 18, 
+        fontWeight: 'bold', 
+        color: '#4a4a4a', 
+        textAlign: 'center',
+    },
+
     buttonDisabled: {
         opacity: 0.5,
     },
-    buttonText: {
-        color: 'white',
-        textAlign: 'center',
-        fontWeight: 'bold',
-    },
+
     loginContainer: {
-        backgroundColor: 'white',
-        padding: 10,
-        borderRadius: 4,
-        borderWidth: 1,
-        borderColor: 'grey',
-        alignItems: 'center',
-        justifyContent: 'center',
         flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 28, 
     },
+
     loginText: {
-        color: 'grey',
-        alignContent: 'center',
+        color: '#808080', 
+        fontWeight: '600', 
     },
+
     loginLink: {
-        color: 'blue',
-        fontWeight: 'bold',
+        fontWeight: '600', // font-semibold
+        color: '#facc15', // text-yellow-500
     },
 });
 
