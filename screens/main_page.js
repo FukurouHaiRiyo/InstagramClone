@@ -6,7 +6,7 @@ import UserStory from '../Components/UserStory/UserStory';
 import UserPost from '../Components/UserPost/userPost';
 import Profile from './Profile/Profile';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faMessage, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faMessage, faGear, faG } from '@fortawesome/free-solid-svg-icons';
 import globalStyles from '../assets/styles/globalStyles';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -179,12 +179,12 @@ const MainPage = () => {
               />
             </TouchableOpacity>
 
-            <TouchableOpacity style={globalStyles.cameraIcon}>
-            <FontAwesomeIcon
-              icon={faCamera}
-              size={20}
-              color={'#898DAE'}
-            />
+            <TouchableOpacity style={globalStyles.cameraIcon} onPress={() => navigation.navigate('Profile')}>
+              <FontAwesomeIcon
+                icon={faGear}
+                size={20}
+                color={'#898DAE'}
+              />
           </TouchableOpacity>
           </View>
           <View style={globalStyles.userStoryContainer}>
