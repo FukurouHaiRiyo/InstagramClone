@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import useUser from '../../hooks/use-user';
 import { isUserFollowingProfile, toggleFollow } from '../../services/firebase';
 import UserContext from '../../context/user';
+import styles from './styles';
 
 const Header = ({
     photosCount,
@@ -32,10 +33,46 @@ const Header = ({
         await toggleFollow(isFollowingProfile, user.docId, profileDocId, profileUserId, user.userId);
     }
 
-    
+    useEffect(() => {
+        const isLoggedInUserFollowingProfile = async () => {
+            const isFollwing = await isUserFollowingProfile(user.username, profileUserId);
+            setIsFollowingProfile(!!isFollwing);
+        };
+
+        if(user?.username && profileUserId){
+            isLoggedInUserFollowingProfile();
+        }
+    }, [user?.username, profileUserId]);
 
     return (
-        <div>Header</div>
+        <View style={styles.container}>
+            <View style={styles.profilePictureContainer}>
+                {profileUsername ? (
+                    <Image 
+                        style={styles.profilePicture}
+                        source={{uri: `/images/avatars/${profileUsername}.jpg`}}
+                        onError={({ nativeEvent: { error } }) => {
+                            // Set default image path on error
+                            if (error.code === '404') {
+                                return <Image source={{uri: '/images/default_profile.png'}}/>
+                            }
+                        }}
+                    />
+                ):(
+                    <Image 
+                        style={styles.profilePicture}
+                        source={{uri: '/images/default_profile.png'}}
+                    />
+                )}
+            </View>
+
+            <View style={styles.profileInfoContainer}>
+                <View style={styles.usernameContainer}>
+                    <Text style={styles.username}>{profileUsername}</Text>
+                    
+                </View>
+            </View>
+        </View>
     )
 }
 
