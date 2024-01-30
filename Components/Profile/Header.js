@@ -69,7 +69,49 @@ const Header = ({
             <View style={styles.profileInfoContainer}>
                 <View style={styles.usernameContainer}>
                     <Text style={styles.username}>{profileUsername}</Text>
-                    
+                    {activeBtnFollow && isFollowingProfile == null ? (
+                        <Text></Text>
+                    ): (
+                        activeBtnFollow && (
+                            <TouchableOpacity style={styles.followButton} onPress={handleToggleFollow}>
+                                <Text style={styles.followButtonText}>
+                                    {isFollowingProfile ? 'Unfollow' : 'Follow'}
+                                </Text>
+                            </TouchableOpacity>
+                        )
+                    )}
+                </View>
+
+                <View style={styles.statsContainer}>
+                    {!followers || !following ? (
+                        <Text></Text>
+                    ): (
+                        <>
+                            <Text style={styles.statText}>
+                                <Text style={styles.statNumber}>{photosCount}</Text> photos
+                            </Text>
+
+                            <Text style={styles.statText}>
+                                <Text style={styles.statNumber}>{followerCount}</Text>
+                                {` `}
+                                {followerCount == 1 ? 'follower': 'followers'}
+                            </Text>
+
+                            <Text style={styles.statText}>
+                                <Text style={styles.statNumber}>{following?.length}</Text> following
+                            </Text>
+                        </>
+                    )}
+                </View>
+
+                <View style={styles.fullNameContainer}>
+                    <Text style={styles.fullName}>
+                        {!fullName ? (
+                            <Text></Text>
+                        ):(
+                            fullName
+                        )}
+                    </Text>
                 </View>
             </View>
         </View>
