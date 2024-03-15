@@ -22,9 +22,39 @@ const add_comment = ({docId, comments, setComments, commentInput}) => {
 
     return (
         <View style={{borderTopWidth: 1, borderTopColor: 'gray'}}>
-            
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 0, paddingRight: 5}}>
+                <TextInput
+                    placeholder='Add a comment...'
+                    style={{
+                        flex: 1,
+                        fontSize: 14,
+                        paddingVertical: 5,
+                        paddingHorizontal: 4
+                    }}
+                    value={comment}
+                    onChangeText={(text) => setComment(text)}
+                    ref={commentInput}
+                />
+
+                <TouchableOpacity 
+                    style={{justifyContent: 'center', opacity: comment.length < 1 ? 0.25: 1}}
+                    onPress={handleSubmitComment}
+                    disabled={comment.length < 1}
+                >
+                    <Text style={{fontSize: 14, fontWeight: 'bold', color: 'blue'}}>
+                        Post
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
+}
+
+add_comment.propTypes = {
+    docId: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired,
+    setComments: PropTypes.func.isRequired,
+    commentInput: PropTypes.object
 }
 
 export default add_comment;
