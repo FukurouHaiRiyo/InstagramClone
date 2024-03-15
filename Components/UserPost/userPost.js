@@ -1,21 +1,18 @@
-import React from 'react';
-import { View, Text, Image } from 'react-native';
-import PropTypes from 'prop-types';
+import React, {useRef} from 'react';
+import { View } from 'react-native';
+import propTypes from 'prop-types';
 import style from './style';
 
 import Header from './Header';
 import Footer from './Footer';
+import image from './image';
+import actions from './actions';
+import comments from './comments';
 
-const UserPost = (props) => {
+const UserPost = ({content}) => {
   return (
-    <View style={style.userPostContainer}>
-      <Header username={props.username} location={props.location} profileImage={props.profileImage}/>
-
-      <View style={style.postImage}>
-        <Image source={props.image} style={{width: '100%', height: 300}}/>
-      </View>
-
-      <Footer likes={props.likes} comments={props.comments} bookmarks={props.bookmarks}/>
+    <View>
+      
     </View>
   )
 };

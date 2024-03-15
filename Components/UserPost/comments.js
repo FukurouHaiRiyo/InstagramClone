@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {formatDistance} from 'date-fns';
 import AddComment from './add-comment';
@@ -43,13 +43,13 @@ const comments = ({docId, comments: allComments, posted, commentInput}) => {
             />
         </>
     )
+}
 
-    comments.propTypes = {
-        docId: PropTypes.string.isRequired,
-        comments: PropTypes.array.isRequired,
-        posted: PropTypes.number.isRequired,
-        commentInput: PropTypes.object.isRequired
-    }
+comments.propTypes = {
+    docId: propTypes.string.isRequired,
+    comments: propTypes.array.isRequired,
+    posted: propTypes.number.isRequired,
+    commentInput: propTypes.object.isRequired
 }
 
 export default comments;

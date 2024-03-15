@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
@@ -67,10 +67,10 @@ const actions = ({docId, totalLikes, likedPhoto, handleFocus}) => {
 }
 
 actions.propTypes = {
-    docId: PropTypes.string.isRequired,
-    totalLikes: PropTypes.number.isRequired,
-    likedPhoto: PropTypes.bool.isRequired,
-    handleFocus: PropTypes.func.isRequired,
+    docId: propTypes.string.isRequired,
+    totalLikes: propTypes.number.isRequired,
+    likedPhoto: propTypes.bool.isRequired,
+    handleFocus: propTypes.func.isRequired,
 }
 
 export default actions;

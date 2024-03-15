@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react';
 import {View, TextInput, TouchableOpacity} from 'react-native';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
@@ -10,7 +10,7 @@ const AddComment = ({docId, comments, setComments, commentInput}) => {
     const {displayName} = useContext(UserContext).user;
 
     const handleSubmitComment = () => {
-        if (comment.lenght >= 1) {
+        if (comment.length >= 1) {
             setComments([...comments, {displayName, comments}]);
             setComment('');
 
@@ -51,10 +51,10 @@ const AddComment = ({docId, comments, setComments, commentInput}) => {
 }
 
 AddComment.propTypes = {
-    docId: PropTypes.string.isRequired,
-    comments: PropTypes.array.isRequired,
-    setComments: PropTypes.func.isRequired,
-    commentInput: PropTypes.object
+    docId: propTypes.string.isRequired,
+    comments: propTypes.array.isRequired,
+    setComments: propTypes.func.isRequired,
+    commentInput: propTypes.object
 }
 
 export default AddComment;
