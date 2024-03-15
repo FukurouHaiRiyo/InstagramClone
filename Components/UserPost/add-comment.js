@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
-const add_comment = ({docId, comments, setComments, commentInput}) => {
+const AddComment = ({docId, comments, setComments, commentInput}) => {
     const [comment, setComment] = useState('');
     const {firebase, FieldView} = useContext(FirebaseContext);
     const {displayName} = useContext(UserContext).user;
@@ -50,11 +50,11 @@ const add_comment = ({docId, comments, setComments, commentInput}) => {
     )
 }
 
-add_comment.propTypes = {
+AddComment.propTypes = {
     docId: PropTypes.string.isRequired,
     comments: PropTypes.array.isRequired,
     setComments: PropTypes.func.isRequired,
     commentInput: PropTypes.object
 }
 
-export default add_comment;
+export default AddComment;
