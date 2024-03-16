@@ -18,14 +18,14 @@ const UserPost = ({content}) => {
 };
 
 UserPost.propTypes = {
-  username: PropTypes.string.isRequired,
-  firstName: PropTypes.string,
-  location: PropTypes.string,
-  image: PropTypes.any.isRequired,
-  profileImage: PropTypes.any.isRequired,
-  likes: PropTypes.number.isRequired,
-  comments: PropTypes.number.isRequired,
-  bookmarks: PropTypes.number.isRequired,
+  username: propTypes.string.isRequired,
+  firstName: propTypes.string,
+  location: propTypes.string,
+  image: propTypes.any.isRequired,
+  profileImage: propTypes.any.isRequired,
+  likes: propTypes.number.isRequired,
+  comments: propTypes.number.isRequired,
+  bookmarks: propTypes.number.isRequired,
 };
 
 export default UserPost;
