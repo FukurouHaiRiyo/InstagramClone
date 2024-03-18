@@ -42,7 +42,13 @@ const UserPost = ({content}) => {
 UserPost.propTypes = {
   content: propTypes.shape({
     username: propTypes.string.isRequired,
-    
+    imageSrc: propTypes.string.isRequired,
+    caption: propTypes.string.isRequired,
+    docId: propTypes.string.isRequired,
+    userLikedPhoto: propTypes.bool.isRequired,
+    likes: propTypes.array.isRequired,
+    comments: propTypes.array.isRequired,
+    dateCreated: propTypes.number.isRequired
   })
 };
 
