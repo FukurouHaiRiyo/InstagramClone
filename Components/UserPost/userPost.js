@@ -1,11 +1,10 @@
 import React, {useRef} from 'react';
 import { View } from 'react-native';
 import propTypes from 'prop-types';
-import style from './style';
 
 import Header from './Header';
 import Footer from './Footer';
-import Image from './image';
+import Imagee from './image';
 import Actions from './actions';
 import Comments from './comments';
 
@@ -16,7 +15,7 @@ const UserPost = ({content}) => {
   return (
     <View style={{borderRadius: 8, borderWidth: 1, backgroundColor: 'white', borderColor: 'gray', marginBottom: 21}}>
       <Header username={content.username}/>
-      <Image src={content.imageSrc} caption={content.caption}/>
+      <Imagee src={content.imageSrc} caption={content.caption}/>
       
       <Actions
         docId={content.docId}
