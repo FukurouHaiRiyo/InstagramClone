@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Image } from 'react-native';
 import propTypes from 'prop-types';
 
-const image = ({src, caption}) => {
+const Image = ({src, caption}) => {
     return (
         <View>
             <Image source={{uri: src}} style={{width: '100%', height: 200}}/>
@@ -10,4 +10,4 @@ const image = ({src, caption}) => {
     )
 }
 
-export default image;
+export default Image;

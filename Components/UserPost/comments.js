@@ -4,7 +4,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {formatDistance} from 'date-fns';
 import AddComment from './add-comment';
 
-const comments = ({docId, comments: allComments, posted, commentInput}) => {
+const Comments = ({docId, comments: allComments, posted, commentInput}) => {
     const [comments, setComments] = useState(allComments);
     const [commentsSlice, setCommentsSlice] = useState(3);
 
@@ -52,4 +52,4 @@ comments.propTypes = {
     commentInput: propTypes.object.isRequired
 }
 
-export default comments;
+export default Comments;

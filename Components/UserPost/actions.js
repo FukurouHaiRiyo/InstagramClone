@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
-const actions = ({docId, totalLikes, likedPhoto, handleFocus}) => {
+const Actions = ({docId, totalLikes, likedPhoto, handleFocus}) => {
     const {firebase, FieldValue} = useContext(FirebaseContext);
     const {uid: userId} = useContext(UserContext).user;
     const [toggleLiked, setToggleLiked] = useState(likedPhoto);
@@ -73,4 +73,4 @@ actions.propTypes = {
     handleFocus: propTypes.func.isRequired,
 }
 
-export default actions;
+export default Actions;
