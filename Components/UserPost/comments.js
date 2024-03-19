@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import propTypes from 'prop-types';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {formatDistance} from 'date-fns';
 import AddComment from './add-comment';
 
 const Comments = (props) => {
