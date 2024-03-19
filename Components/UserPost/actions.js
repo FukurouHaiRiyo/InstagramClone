@@ -34,13 +34,13 @@ const Actions = (props) => {
                             justifyContent: 'center'
                         }}
                     >
-                        <SvgIcon
+                        {/* <SvgIcon
                             name='heart'
                             fill={toggleLiked ? 'red' : 'none'}
                             stroke={toggleLiked ? 'red' : 'black'}
                             width={24}
                             height={24} 
-                        />
+                        /> */}
                     </TouchableOpacity>
 
                     <TouchableOpacity
@@ -52,7 +52,7 @@ const Actions = (props) => {
                             justifyContent: 'center'
                         }}
                     >
-                        <SvgIcon name='comment' fill='none' stroke='black' width={24} height={24}/>
+                        {/* <SvgIcon name='comment' fill='none' stroke='black' width={24} height={24}/> */}
                     </TouchableOpacity>
                 </View>
             </View>
