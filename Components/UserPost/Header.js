@@ -7,18 +7,18 @@ import PropTypes from 'prop-types';
 import style from './style';
 import UserProfileImage from '../UserProfileImage/UserProfileImage';
 
-const Header = ({username, location, profileImage}) => {
+const Header = (props) => {
   return (
     <View style={style.user}>
         <View style={style.userContainer}>
-            <UserProfileImage profileImage={profileImage} imageDimension={60}/> 
+            <UserProfileImage profileImage={props.profileImage} imageDimension={60}/> 
 
             <View style={style.userTextContainer}>
                 <Text style={style.username}>
-                    {username}
+                    {props.username}
                 </Text>
 
-                {location && <Text style={style.location}>{location}</Text>}
+                {props.location && <Text style={style.location}>{props.location}</Text>}
             </View>
         </View>
 
@@ -27,7 +27,7 @@ const Header = ({username, location, profileImage}) => {
   )
 }
 
-Header.protoTypes = {
+Header.propTypes = {
     username: PropTypes.string,
     location: PropTypes.string,
     profileImage: PropTypes.any.isRequired,

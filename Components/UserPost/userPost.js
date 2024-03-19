@@ -8,30 +8,30 @@ import Imagee from './image';
 import Actions from './actions';
 import Comments from './comments';
 
-const UserPost = ({content}) => {
+const UserPost = (props) => {
   const commentInput = useRef(null);
   const handleFocus = () => commentInput.current.focus();
 
   return (
     <View style={{borderRadius: 8, borderWidth: 1, backgroundColor: 'white', borderColor: 'gray', marginBottom: 21}}>
-      <Header username={content.username}/>
-      <Imagee src={content.imageSrc} caption={content.caption}/>
+      <Header username={props.username}/>
+      <Imagee src={props.imageSrc} caption={props.caption}/>
       
       <Actions
-        docId={content.docId}
-        totalLikes={content.likes.length}
-        likedPhoto={content.userLikedPhoto}
+        docId={props.docId}
+        totalLikes={props.likes.length}
+        likedPhoto={props.userLikedPhoto}
         handleFocus={handleFocus}
       />
 
       <Footer
-        caption={content.caption}
-        username={content.username}
+        caption={props.caption}
+        username={props.username}
       />
       <Comments
-        docId={content.docId}
-        comments={content.comments}
-        posted={content.dateCreated}
+        docId={props.docId}
+        comments={props.comments}
+        posted={props.dateCreated}
         commentInput={commentInput}
       />
     </View>
@@ -39,7 +39,6 @@ const UserPost = ({content}) => {
 };
 
 UserPost.propTypes = {
-  content: propTypes.shape({
     username: propTypes.string.isRequired,
     imageSrc: propTypes.string.isRequired,
     caption: propTypes.string.isRequired,
@@ -48,7 +47,6 @@ UserPost.propTypes = {
     likes: propTypes.array.isRequired,
     comments: propTypes.array.isRequired,
     dateCreated: propTypes.number.isRequired
-  })
 };
 
 export default UserPost;

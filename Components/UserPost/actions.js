@@ -4,11 +4,11 @@ import propTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
 
-const Actions = ({docId, totalLikes, likedPhoto, handleFocus}) => {
+const Actions = (props) => {
     const {firebase, FieldValue} = useContext(FirebaseContext);
-    const {uid: userId} = useContext(UserContext).user;
-    const [toggleLiked, setToggleLiked] = useState(likedPhoto);
-    const [likes, setLikes] = useState(totalLikes);
+    // const {uid} = useContext(UserContext);
+    const [toggleLiked, setToggleLiked] = useState(props.likedPhoto);
+    const [likes, setLikes] = useState(props.totalLikes);
 
     const handleToggleLiked = async () => {
         setToggleLiked((prevToggleLiked) => !prevToggleLiked);
@@ -66,7 +66,7 @@ const Actions = ({docId, totalLikes, likedPhoto, handleFocus}) => {
     );
 }
 
-actions.propTypes = {
+Actions.propTypes = {
     docId: propTypes.string.isRequired,
     totalLikes: propTypes.number.isRequired,
     likedPhoto: propTypes.bool.isRequired,
