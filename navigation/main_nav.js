@@ -2,7 +2,6 @@ import { Routes } from "./routes";
 import Login from "../screens/Login/login";
 import MainPage from "../screens/main_page";
 import SignUp from "../screens/SignUp/signup";
-import Dashboard from "../screens/Dashboard/dashboard";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
